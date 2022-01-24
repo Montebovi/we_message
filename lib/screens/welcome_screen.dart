@@ -4,15 +4,45 @@ import 'package:we_message/screens/registration_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static String id = 'Welcome_Screen';
+
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _WelcomeScreenState extends State<WelcomeScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+  late Animation animation;
+  //int color = 300;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+      duration: Duration(seconds: 2),
+      vsync: this,
+    );
+    animation = CurvedAnimation(
+      parent: controller,
+      curve: Curves.bounceIn.flipped,
+    );
+    controller.forward();
+    controller.addListener(() {
+      setState(() {});
+      print(animation.value);
+    });
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.teal[300],
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -25,7 +55,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   tag: 'logo',
                   child: Container(
                     child: Image.asset('images/logo1.png'),
-                    height: 60.0,
+                    height: animation.value * 150,
                   ),
                 ),
                 Text(
