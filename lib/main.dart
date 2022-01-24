@@ -3,7 +3,6 @@ import 'package:we_message/screens/welcome_screen.dart';
 import 'package:we_message/screens/login_screen.dart';
 import 'package:we_message/screens/registration_screen.dart';
 import 'package:we_message/screens/chat_screen.dart';
-import 'package:we_message/screens/welcome_screen.dart';
 
 void main() => runApp(FlashChat());
 

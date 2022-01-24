@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:we_message/screens/login_screen.dart';
 import 'package:we_message/screens/registration_screen.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static String id = 'Welcome_Screen';
@@ -19,7 +20,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   void initState() {
     super.initState();
     controller = AnimationController(
-      duration: Duration(seconds: 2),
+      duration: Duration(seconds: 3),
       vsync: this,
     );
     animation = CurvedAnimation(
@@ -58,12 +59,17 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                     height: animation.value * 150,
                   ),
                 ),
-                Text(
-                  'We Message',
-                  style: TextStyle(
-                    fontSize: 45.0,
-                    fontWeight: FontWeight.w900,
-                  ),
+                SizedBox(
+                  width: 20,
+                ),
+                AnimatedTextKit(
+                  animatedTexts: [
+                    WavyAnimatedText('We  Message',
+                        textStyle: TextStyle(
+                            fontSize: 30, fontWeight: FontWeight.bold)),
+                  ],
+                  stopPauseOnTap: true,
+                  pause: Duration(seconds: 1),
                 ),
               ],
             ),
