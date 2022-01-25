@@ -43,55 +43,59 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.teal[300],
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Row(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.teal[300],
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24.0),
+          child: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Hero(
-                  tag: 'logo',
-                  child: Container(
-                    child: Image.asset('images/logo1.png'),
-                    height: animation.value * 150,
-                  ),
+                Row(
+                  children: <Widget>[
+                    Hero(
+                      tag: 'logo',
+                      child: Container(
+                        child: Image.asset('images/logo1.png'),
+                        height: animation.value * 150,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    AnimatedTextKit(
+                      animatedTexts: [
+                        WavyAnimatedText('We  Message',
+                            textStyle: TextStyle(
+                                fontSize: 30, fontWeight: FontWeight.bold)),
+                      ],
+                      stopPauseOnTap: true,
+                      pause: Duration(seconds: 1),
+                    ),
+                  ],
                 ),
                 SizedBox(
-                  width: 20,
+                  height: 48.0,
                 ),
-                AnimatedTextKit(
-                  animatedTexts: [
-                    WavyAnimatedText('We  Message',
-                        textStyle: TextStyle(
-                            fontSize: 30, fontWeight: FontWeight.bold)),
-                  ],
-                  stopPauseOnTap: true,
-                  pause: Duration(seconds: 1),
+                RoundedButton(
+                  title: 'Log In',
+                  colour: Colors.lightBlueAccent,
+                  onPressed: () {
+                    Navigator.pushNamed(context, LoginScreen.id);
+                  },
+                ),
+                RoundedButton(
+                  title: 'Register',
+                  colour: Colors.blueAccent,
+                  onPressed: () {
+                    Navigator.pushNamed(context, RegistrationScreen.id);
+                  },
                 ),
               ],
             ),
-            SizedBox(
-              height: 48.0,
-            ),
-            RoundedButton(
-              title: 'Log In',
-              colour: Colors.lightBlueAccent,
-              onPressed: () {
-                Navigator.pushNamed(context, LoginScreen.id);
-              },
-            ),
-            RoundedButton(
-              title: 'Register',
-              colour: Colors.blueAccent,
-              onPressed: () {
-                Navigator.pushNamed(context, RegistrationScreen.id);
-              },
-            ),
-          ],
+          ),
         ),
       ),
     );

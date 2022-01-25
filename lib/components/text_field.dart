@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 
 class InputText extends StatelessWidget {
-  InputText({required this.title, required this.obscureText});
+  InputText(
+      {required this.title,
+      required this.obscureText,
+      required this.onTextChanged});
 
   final String title;
   final bool obscureText;
+  final Function onTextChanged;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: (value) {
+        onTextChanged(value);
+      },
       textAlign: TextAlign.center,
       obscureText: obscureText,
       style: TextStyle(fontSize: 20, color: Colors.black),
