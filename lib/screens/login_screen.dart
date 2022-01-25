@@ -9,6 +9,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  late String email = '';
+  late String password = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,18 +31,33 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 48.0,
             ),
-            InputText(title: 'Enter your email', obscureText: false),
+            InputText(
+              title: 'Enter your email',
+              obscureText: false,
+              onTextChanged: (value) {
+                email = value;
+              },
+            ),
             SizedBox(
               height: 8.0,
             ),
-            InputText(title: 'Enter your Password', obscureText: true),
+            InputText(
+              title: 'Enter your Password',
+              obscureText: true,
+              onTextChanged: (value) {
+                password = value;
+              },
+            ),
             SizedBox(
               height: 24.0,
             ),
             RoundedButton(
                 colour: Colors.lightBlueAccent,
                 title: 'Log In',
-                onPressed: () {}),
+                onPressed: () {
+                  print(email);
+                  print(password);
+                }),
           ],
         ),
       ),
