@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:we_message/components/password_field.dart';
 import 'package:we_message/components/rounded_button.dart';
 import 'package:we_message/components/text_field.dart';
 
@@ -41,9 +42,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 8.0,
             ),
-            InputText(
+            PwdInputText(
               title: 'Enter your password',
-              obscureText: true,
               onTextChanged: (value) {
                 password = value;
               },
@@ -52,12 +52,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 24.0,
             ),
             RoundedButton(
-                colour: Colors.blueAccent,
-                title: 'Register',
-                onPressed: () {
-                  print(email);
-                  print(password);
-                })
+              colour: Colors.blueAccent,
+              title: 'Register',
+              onPressed: () {
+                print(email);
+                print(password);
+              },
+            ),
           ],
         ),
       ),

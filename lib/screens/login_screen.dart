@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:we_message/components/password_field.dart';
 import 'package:we_message/components/rounded_button.dart';
 import 'package:we_message/components/text_field.dart';
 
@@ -41,9 +42,8 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 8.0,
             ),
-            InputText(
+            PwdInputText(
               title: 'Enter your Password',
-              obscureText: true,
               onTextChanged: (value) {
                 password = value;
               },

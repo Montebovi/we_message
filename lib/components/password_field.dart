@@ -1,23 +1,29 @@
 import 'package:flutter/material.dart';
 
-class InputText extends StatelessWidget {
-  InputText(
-      {required this.title,
-      required this.obscureText,
-      required this.onTextChanged});
-
+class PwdInputText extends StatefulWidget {
+  PwdInputText({required this.title, required this.onTextChanged});
   final String title;
-  final bool obscureText;
   final Function onTextChanged;
+
+  @override
+  _PwdInputTextState createState() => _PwdInputTextState();
+}
+
+class _PwdInputTextState extends State<PwdInputText> {
+  bool isObscure = true;
+
   @override
   Widget build(BuildContext context) {
+    String title = widget.title;
+    Function onTextChanged = widget.onTextChanged;
+    widget.onTextChanged;
     return TextField(
-      keyboardType: TextInputType.emailAddress,
+      keyboardType: TextInputType.visiblePassword,
       textAlign: TextAlign.center,
       onChanged: (value) {
         onTextChanged(value);
       },
-      obscureText: obscureText,
+      obscureText: isObscure,
       style: TextStyle(fontSize: 20, color: Colors.black),
       decoration: InputDecoration(
         alignLabelWithHint: true,
@@ -37,6 +43,18 @@ class InputText extends StatelessWidget {
         // hintText: 'Inserire $title',
         labelText: title,
         labelStyle: TextStyle(color: Colors.black, fontSize: 15.0),
+
+        suffixIcon: IconButton(
+          icon: Icon(
+            isObscure ? Icons.visibility : Icons.visibility_off,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            setState(() {
+              isObscure = !isObscure;
+            });
+          },
+        ),
       ),
     );
   }
