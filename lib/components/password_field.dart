@@ -26,6 +26,7 @@ class _PwdInputTextState extends State<PwdInputText> {
       obscureText: isObscure,
       style: TextStyle(fontSize: 20, color: Colors.black),
       decoration: InputDecoration(
+        fillColor: Colors.teal[100],
         alignLabelWithHint: true,
         filled: true,
         border: OutlineInputBorder(

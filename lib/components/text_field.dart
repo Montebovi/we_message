@@ -20,6 +20,7 @@ class InputText extends StatelessWidget {
       obscureText: obscureText,
       style: TextStyle(fontSize: 20, color: Colors.black),
       decoration: InputDecoration(
+        fillColor: Colors.teal[100],
         alignLabelWithHint: true,
         filled: true,
         border: OutlineInputBorder(
