@@ -7,6 +7,7 @@ import 'package:we_message/screens/chat_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  //await Firebase.initializeApp();
   await Firebase.initializeApp(
     options: const FirebaseOptions(
       apiKey: 'AIzaSyAxWQapz3LnNAitvLqk6sqe0Q2-OCgEh4g',
